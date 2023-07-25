@@ -20,6 +20,7 @@ struct TodoListView: View {
                 ForEach(viewModel.todos ?? []) { todo in
                     
                     Text("\(todo.title): **\(todo.completed ? "completed" : "open")**")
+                        .listRowInsets(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 10))
                         .onTapGesture {
                             viewModel.isTodoSelected = true
                             viewModel.selectedTodo = todo
@@ -34,6 +35,7 @@ struct TodoListView: View {
                 } label: {
                     Label("Todo #\(viewModel.selectedTodo?.id ?? 0)", systemImage: "person")
                 }
+                .padding()
 
             }
         }

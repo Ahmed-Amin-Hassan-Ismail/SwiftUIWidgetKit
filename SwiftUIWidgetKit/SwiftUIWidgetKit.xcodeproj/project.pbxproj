@@ -17,6 +17,19 @@
 		AC6B673A2A7039B900B8A7F0 /* TodoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B67392A7039B900B8A7F0 /* TodoListView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		AC6B67532A7052CA00B8A7F0 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		AC6B671B2A7035B000B8A7F0 /* SwiftUIWidgetKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIWidgetKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC6B671E2A7035B000B8A7F0 /* SwiftUIWidgetKitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIWidgetKitApp.swift; sourceTree = "<group>"; };
@@ -27,6 +40,8 @@
 		AC6B67352A70383400B8A7F0 /* TodoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoService.swift; sourceTree = "<group>"; };
 		AC6B67372A7038E300B8A7F0 /* TodoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewModel.swift; sourceTree = "<group>"; };
 		AC6B67392A7039B900B8A7F0 /* TodoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListView.swift; sourceTree = "<group>"; };
+		AC6B67412A7052C900B8A7F0 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		AC6B67432A7052C900B8A7F0 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				AC6B671D2A7035B000B8A7F0 /* SwiftUIWidgetKit */,
+				AC6B67402A7052C900B8A7F0 /* Frameworks */,
 				AC6B671C2A7035B000B8A7F0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,6 +135,15 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		AC6B67402A7052C900B8A7F0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC6B67412A7052C900B8A7F0 /* WidgetKit.framework */,
+				AC6B67432A7052C900B8A7F0 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,6 +154,7 @@
 				AC6B67172A7035B000B8A7F0 /* Sources */,
 				AC6B67182A7035B000B8A7F0 /* Frameworks */,
 				AC6B67192A7035B000B8A7F0 /* Resources */,
+				AC6B67532A7052CA00B8A7F0 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
