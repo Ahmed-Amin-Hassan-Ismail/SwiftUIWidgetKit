@@ -15,3 +15,11 @@ struct Todo: Codable, Identifiable {
     let completed: Bool
 }
 
+extension Todo {
+    
+    static func placeholder(_ id: Int) -> Todo {
+        
+        Todo(userId: 0, id: id, title: "Todo Title", completed: .random())
+    }
+}
+

@@ -12,27 +12,47 @@ struct Provider: TimelineProvider {
     
     typealias Entry = SimpleEntry
     
+    private let service = TodoService()
+    
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date())
+        SimpleEntry(date: Date(), todos: [.placeholder(0)])
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date())
-        completion(entry)
+        Task {
+            do {
+                let todos = try await service.fetchTodoList()
+                let fiveTodos = Array(todos.prefix(5))
+                let entry = SimpleEntry(date: Date(), todos: fiveTodos)
+                
+                completion(entry)
+                 
+            } catch {
+                
+                let entry = SimpleEntry(date: Date(), todos: [.placeholder(0), .placeholder(1)])
+                completion(entry)
+            }
+        }
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate)
-            entries.append(entry)
+        Task {
+            do {
+                let todos = try await service.fetchTodoList()
+                let fiveTodos = Array(todos.prefix(5))
+                let entry = SimpleEntry(date: Date(), todos: fiveTodos)
+                let timeLine = Timeline(entries: [entry], policy: .after(Date().advanced(by: 60 * 60 * 30)))
+                
+                completion(timeLine)
+                
+            } catch {
+                
+                let entries = [SimpleEntry(date: Date(), todos: [.placeholder(0)]), SimpleEntry(date: Date(), todos: [.placeholder(1)])]
+                
+                let timeLine = Timeline(entries: entries, policy: .after(Date().advanced(by: 60 * 60 * 30)))
+                
+                completion(timeLine)
+            }
         }
-
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
     }
 }

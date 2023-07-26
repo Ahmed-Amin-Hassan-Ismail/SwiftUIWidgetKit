@@ -18,6 +18,9 @@
 		AC3326032A715FB900F9961B /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3326022A715FB900F9961B /* Entry.swift */; };
 		AC3326062A71616200F9961B /* MediumWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3326052A71616200F9961B /* MediumWidgetView.swift */; };
 		AC3326082A71617400F9961B /* LargeWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3326072A71617400F9961B /* LargeWidgetView.swift */; };
+		AC3326092A71722200F9961B /* TodoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B67352A70383400B8A7F0 /* TodoService.swift */; };
+		AC33260A2A71722600F9961B /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B672F2A7036AB00B8A7F0 /* TodoModel.swift */; };
+		AC33260B2A71722B00F9961B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B67322A7036CA00B8A7F0 /* NetworkManager.swift */; };
 		AC6B671F2A7035B000B8A7F0 /* SwiftUIWidgetKitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B671E2A7035B000B8A7F0 /* SwiftUIWidgetKitApp.swift */; };
 		AC6B67232A7035B100B8A7F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC6B67222A7035B100B8A7F0 /* Assets.xcassets */; };
 		AC6B67262A7035B100B8A7F0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC6B67252A7035B100B8A7F0 /* Preview Assets.xcassets */; };
@@ -312,9 +315,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC33260A2A71722600F9961B /* TodoModel.swift in Sources */,
 				AC3326032A715FB900F9961B /* Entry.swift in Sources */,
+				AC33260B2A71722B00F9961B /* NetworkManager.swift in Sources */,
 				AC3326012A715F9F00F9961B /* Provider.swift in Sources */,
 				AC3325F72A715ED500F9961B /* WidgetView.swift in Sources */,
+				AC3326092A71722200F9961B /* TodoService.swift in Sources */,
 				AC3326082A71617400F9961B /* LargeWidgetView.swift in Sources */,
 				AC3326062A71616200F9961B /* MediumWidgetView.swift in Sources */,
 				AC3325E92A715E7100F9961B /* WidgetExtensionBundle.swift in Sources */,

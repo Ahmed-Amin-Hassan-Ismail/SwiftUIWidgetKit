@@ -24,7 +24,7 @@ struct WidgetExtension: Widget {
 
 struct WidgetExtension_Previews: PreviewProvider {
     static var previews: some View {
-        WidgetView(entry: SimpleEntry(date: Date()))
+        WidgetView(entry: SimpleEntry(date: Date(), todos: [.placeholder(0)]))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

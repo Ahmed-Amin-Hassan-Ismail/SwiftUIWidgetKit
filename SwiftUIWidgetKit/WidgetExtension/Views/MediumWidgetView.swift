@@ -26,13 +26,16 @@ struct MediumWidgetView: View {
                 
                 Divider()
                 
-                VStack(alignment: .leading) {
-                    
-                    Text("Todo Title")
-                        .font(.headline)
-                    
-                    Text("Complete")
-                        .font(.subheadline)
+                if let todo = entry.todos.first {
+                    VStack(alignment: .leading) {
+                        
+                        Text(todo.title)
+                            .font(.headline)
+                        
+                        Text(todo.completed ? "Complete" : "Open")
+                            .font(.subheadline)
+                            .foregroundColor(todo.completed ? .green : .red)
+                    }
                 }
              
                 Spacer()
@@ -43,6 +46,6 @@ struct MediumWidgetView: View {
         } label: {
             Label("My Todo", systemImage: "list.dash")
         }
-        .widgetURL(URL(string: "myapp://todo/1"))
+        .widgetURL(URL(string: "myapp://todo/\(entry.todos.first?.id ?? 0)"))
     }
 }

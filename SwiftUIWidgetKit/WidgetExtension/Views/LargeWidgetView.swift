@@ -30,18 +30,19 @@ struct LargeWidgetView: View {
             .shadow(radius: 5)
             
             
-            ForEach(0..<5, id: \.self) { _ in
-                Link(destination: URL(string: "myapp://todo/1")!) {
+            ForEach(entry.todos) { todo in
+                Link(destination: URL(string: "myapp://todo/\(todo.id)")!) {
                     HStack {
                         
                         Circle()
                             .stroke(lineWidth: 2)
                             .frame(width: 30, height: 30)
-                            .overlay(
-                                Image(systemName: "checkmark")
-                            )
+                            .overlay (
+                                
+                                Image(systemName: todo.completed ? "checkmark" : "")
+                                )
                         
-                        Text("Todo Title")
+                        Text(todo.title)
                         
                         Spacer()
                     }
