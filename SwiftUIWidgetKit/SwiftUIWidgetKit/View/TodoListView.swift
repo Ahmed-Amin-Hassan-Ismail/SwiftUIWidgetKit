@@ -36,7 +36,25 @@ struct TodoListView: View {
                     Label("Todo #\(viewModel.selectedTodo?.id ?? 0)", systemImage: "person")
                 }
                 .padding()
-
+            }
+            .onOpenURL { url in
+                
+                print("the url path", url.pathComponents)
+                
+                
+                guard
+                    url.scheme == "myapp",
+                    url.host == "todo",
+                    let id = Int(url.pathComponents[1])
+                else {
+                    return
+                }
+                
+                Task {
+                    await viewModel.getSelectedTodo(with: id)
+                }
+                      
+                viewModel.isTodoSelected = true
             }
         }
     }

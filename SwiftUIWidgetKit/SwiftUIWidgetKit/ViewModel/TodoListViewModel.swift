@@ -41,11 +41,12 @@ final class TodoListViewModel: ObservableObject {
         }
     }
     
-    
-    func getSelectedTodo() async {
+    @MainActor
+    func getSelectedTodo(with id: Int) async {
         
         do {
             
+            self.selectedTodo = try await service.getTodo(with: id)
             
         } catch {
             
